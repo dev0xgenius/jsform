@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="description" content="A Simple Registration Form validated by JS">
+    <meta charset="UTF-8" />
+
+    <title>Simple User Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="./main.css" />
+  </head>
+  <body class="center">
+    <output id="errorBox"></output>
+    <form action="" method="GET" id="userInfo" autocomplete="off">
+      <h1><em>Sign</em>Up</h1>
+      <div class="fullname"><span>
+          <label for="firstName">Firstname</label><br />
+          <input type="text" id="firstName" placeholder="Your firstname..." 
+          maxlength="20" required/>
+        </span> <span>
+          <label for="lastName">LastName</label><br />
+          <input type="text" id="lastName" placeholder="Your lastname..." 
+          maxlength="20" required/>
+        </span> </div>
+        <div class="more"><span>
+          <label for="email">Email Address</label><br />
+          <input type="email" id="email" placeholder="examplejosh@gmail.com" required/></span>
+          <div><span>
+            <label for="gender">Gender</label><br />
+            <select class="input gender" id="gender">
+              <option value="Unknown">Unknown</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+            </span> <span>
+              <label for="dateOfBirth">Date Of Birth</label><br />
+              <input type="date" id="dateOfBirth" value="" />
+            </span></div>
+        </div>
+        <div class="password"><span>
+          <label for="password">Password</label><br />
+          <input type="password" id="password" placeholder="Min: 8 Characters..." 
+          minlength='8' required/>
+        </span> <span>
+          <label for="confirmPassword">Confirm Password</label><br />
+          <input type="password" id="confirmPassword" placeholder=
+          "Must match password..." required/>
+        </span></div>
+        <div class="help">
+          <span><span>Remember me <input type="checkbox" id='remembered' /> </span>
+          <a href="">Forgot Password?</a></span>
+        </div>
+      </form>
+      <input type="submit" id="submitBtn" value="Submit" form="userInfo"/>
+      <input type='hidden' id="isVerified" value="false" /> 
+  </body>
+  <script>
+    let inputs = document.getElementsByTagName('input');
+    for (let input of inputs) {
+        input.addEventListener('focus', event => {
+            input.className ='focused';
+            document.querySelector(`label[for='${input.id}'`)
+                .className = " focused";
+        });
+    }
+  </script>
+  <script src="./validation.js"></script>
+</html>
